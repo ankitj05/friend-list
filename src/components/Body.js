@@ -1,6 +1,6 @@
 import React from 'react'
-import List from './List'
-import Pagination from './Pagination'
+import List from './layout/List'
+import Pagination from './layout/Pagination'
 
 function Body() {
     return (

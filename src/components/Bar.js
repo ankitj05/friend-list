@@ -1,16 +1,24 @@
 import React, { useState, useContext, useEffect } from 'react'
-import Body from './body/Body';
-import FriendContext from '../context/friendContext';
-import AddFriend from './AddFriend';
-import { MdSort } from 'react-icons/md';
+import Body from './Body';
+import AddFriend from './layout/AddFriend';
+import { HiSortAscending, HiSortDescending } from 'react-icons/hi';
 import ReactTooltip from 'react-tooltip';
+import FriendContext from '../context/friendContext';
 
 function Bar() {
 
     const [name, setName] = useState('')
-    const friendContext = useContext(FriendContext);
+    const [timer, setTimer] = useState(true);
 
-    const { addOrSearchFriend, isFound, sortFriendsByFavourites, resetSearch, updateTotalPages } = friendContext;
+    const friendContext = useContext(FriendContext);
+    const {
+        searchFriend,
+        isFound,
+        sortFriendsByFavourites,
+        resetSearch,
+        updateTotalPages,
+        isSorted
+    } = friendContext;
 
     const onChange = e => {
         let value = e.target.value;
@@ -19,7 +27,15 @@ function Bar() {
             resetSearch();
             updateTotalPages();
         }
-        else setName(value)
+        else {
+            setName(value)
+            clearTimeout(timer)
+            setTimer(setTimeout(() => {
+                let friendName = capitalize(value);
+                searchFriend(friendName);
+                updateTotalPages();
+            }, 100))
+        }
     }
 
     const capitalize = (string) => {
@@ -33,7 +49,7 @@ function Bar() {
         e.preventDefault();
         if (!!name) {
             let friendName = capitalize(name);
-            addOrSearchFriend(friendName);
+            searchFriend(friendName);
             updateTotalPages();
         }
     }
@@ -43,29 +59,33 @@ function Bar() {
     }, [])
 
     return (
-        <div className="mt-6">
-            <div className="flex justify-center items-center">
+        <>
+            <div className="flex justify-center items-center mt-5 m-auto">
                 <form onSubmit={onSubmit}>
                     <input
-                        className="border-2 rounded-3xl border-gray-300 px-4 py-1 w-auto focus:outline-none focus:border-red-300"
+                        className="border border-gray-400 focus:border-red-300 rounded-2xl outline-none w-auto h-9 p-2 my-4 "
                         type='text'
                         value={name}
                         onChange={onChange}
                         placeholder='Enter your friends name' />
                 </form>
                 <span
-                    className="ml-2 cursor-pointer"
+                    className="cursor-pointer mx-2"
                     onClick={() => sortFriendsByFavourites()}
-                    data-tip="hello world"
-                    place="bottom">
-                    <MdSort size="2em" /></span>
+                    data-tip="sort by favorite"
+                    data-place="bottom"
+                    data-type="info"
+                    data-delay-show="300">
+                    {(isSorted) ? (
+                        <HiSortAscending size="1.5em" color="black" />) : (
+                            <HiSortDescending size="1.5em" color="black" />)}</span>
             </div>
-            <div>
-                {(isFound === false) ? (<AddFriend name={name} />) : ('')}
+            <>
+                {(isFound === false) ? (<AddFriend name={name} clearName={() => setName('')} />) : ('')}
                 <Body />
-            </div>
+            </>
             <ReactTooltip />
-        </div>
+        </>
     )
 }
 

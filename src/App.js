@@ -2,13 +2,11 @@ import Bar from './components/Bar';
 import FriendState from './context/friendState';
 
 function App() {
-
+  //px-4 mt-6 mx-96
   return (
-    <div className="h-screen">
+    <div className="min-h-screen">
       <FriendState>
-        <div className="mx-96">
-          <Bar />
-        </div>
+        <Bar />
       </FriendState>
     </div>
   );
