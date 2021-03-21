@@ -4,6 +4,7 @@ import AddFriend from './layout/AddFriend';
 import { HiSortAscending, HiSortDescending } from 'react-icons/hi';
 import ReactTooltip from 'react-tooltip';
 import FriendContext from '../context/friendContext';
+import Footer from './Footer';
 
 function Bar() {
 
@@ -80,7 +81,6 @@ function Bar() {
             </div>
             <>
                 {(isFound === false) ? (<AddFriend name={name} clearName={() => setName('')} />) : ('')}
-                <Body />
             </>
             <ReactTooltip />
         </>

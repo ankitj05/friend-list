@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import FriendContext from '../../context/friendContext';
-import { MdAdd, MdClear } from 'react-icons/md'
+import { CgAdd, CgCloseO } from 'react-icons/cg'
 
 function AddFriend({ name, clearName, favorite = false }) {
 
@@ -30,8 +30,10 @@ function AddFriend({ name, clearName, favorite = false }) {
                 <h3 className="font-light">is not on your friend list.</h3>
                 <h3 className="font-light">Do you want to add ?</h3>
             </div>
-            <span className="cursor-pointer" onClick={onAddHandler}><MdAdd size='2em' /></span>
-            <span className="cursor-pointer" onClick={onClearHandler}><MdClear size='2em' /></span>
+            <div className="flex space-x-3">
+                <span className="cursor-pointer" onClick={onAddHandler}><CgAdd size='2.1em' /></span>
+                <span className="cursor-pointer" onClick={onClearHandler}><CgCloseO size='2em' /></span>
+            </div>
         </div>
     )
 }

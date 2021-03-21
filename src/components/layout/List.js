@@ -30,7 +30,7 @@ function List() {
     return (
         <div >
             {(friends.length > 0) ? (
-                <div className={`border rounded-2xl border-gray-500 divide-y divide-gray-300 min-w-max max-w-max m-auto my-10 ${opaqueState}`}>
+                <div className={`border rounded-2xl border-gray-500 divide-y divide-gray-300 min-w-max max-w-max m-auto my-5 ${opaqueState}`}>
                     {currentList.map(friend => (
                         <ListItem key={friend.id} friend={friend} />
                     ))}
