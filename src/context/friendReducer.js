@@ -56,7 +56,8 @@ export default (state, action) => {
             return {
                 ...state,
                 friends: [...sortedList],
-                isSorted: !state.isSorted
+                isSorted: !state.isSorted,
+                currentPage: 1
             }
 
         case SET_CURRENT_PAGE:

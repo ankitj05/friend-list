@@ -19,7 +19,7 @@ function AddFriend({ name, clearName, favorite = false }) {
 
     const onClearHandler = () => {
         resetSearch();
-        clearName();
+        if (typeof clearName === 'function') clearName();
         updateTotalPages();
     }
 

@@ -13,6 +13,7 @@
 
 4. Sort By Favorite
     Hey, if you are not able to find all your favorite friends, you can always sort by favourite, so that they remain at the top of your list. 
+    Goes back to page 1, when you sort.
 
 5. Pagination
     At once you can only see 4 of your friends, so to see more friends go to other pages.
