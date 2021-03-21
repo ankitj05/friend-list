@@ -17,80 +17,53 @@ import {
 const FriendState = (props) => {
 
     const initialState = {
-        friends: [{
-            name: 'Ankit Jain',
-            favorite: false,
-            id: uuidv4(),
-        },
-        {
-            name: 'Siddhesh Nachane',
-            favorite: false,
-            id: uuidv4(),
-        },
-        {
-            name: 'Aman',
-            favorite: true,
-            id: uuidv4(),
-        },
-        {
-            name: 'Ritesh Singh Bhandari',
-            favorite: true,
-            id: uuidv4(),
-        },
-        {
-            name: 'Rakesh Kumar',
-            favorite: false,
-            id: uuidv4(),
-        }, {
-            name: 'Ankit Jain',
-            favorite: false,
-            id: uuidv4(),
-        },
-        {
-            name: 'Siddhesh Nachane',
-            favorite: false,
-            id: uuidv4(),
-        },
-        {
-            name: 'Aman',
-            favorite: true,
-            id: uuidv4(),
-        },
-        {
-            name: 'Ritesh Singh Bhandari',
-            favorite: true,
-            id: uuidv4(),
-        },
-        {
-            name: 'Rakesh Kumar',
-            favorite: false,
-            id: uuidv4(),
-        },
-        {
-            name: 'Ankit Jain',
-            favorite: false,
-            id: uuidv4(),
-        },
-        {
-            name: 'Siddhesh Nachane',
-            favorite: false,
-            id: uuidv4(),
-        },
-        {
-            name: 'Aman',
-            favorite: true,
-            id: uuidv4(),
-        },
-        {
-            name: 'Ritesh Singh Bhandari',
-            favorite: true,
-            id: uuidv4(),
-        },
-        {
-            name: 'Rakesh Kumar',
-            favorite: false,
-            id: uuidv4(),
-        }],
+        friends: [
+            // {
+            //     name: 'Jake Paralta',
+            //     favorite: true,
+            //     id: uuidv4(),
+            // },
+            // {
+            //     name: 'Amy Santiago',
+            //     favorite: false,
+            //     id: uuidv4(),
+            // },
+            // {
+            //     name: 'Rosa',
+            //     favorite: true,
+            //     id: uuidv4(),
+            // },
+            // {
+            //     name: 'Charles Boyle',
+            //     favorite: true,
+            //     id: uuidv4(),
+            // },
+            // {
+            //     name: 'Cpt. Ray Holt',
+            //     favorite: false,
+            //     id: uuidv4(),
+            // },
+            // {
+            //     name: 'Terry Jeffords',
+            //     favorite: false,
+            //     id: uuidv4(),
+            // },
+            // {
+            //     name: '',
+            //     favorite: false,
+            //     id: uuidv4(),
+            // },
+            // {
+            //     name: 'The Vulture',
+            //     favorite: true,
+            //     id: uuidv4(),
+            // },
+            // {
+            //     name: 'Jason Stanley',
+            //     favorite: false,
+            //     id: uuidv4(),
+            // }
+        ],
         isFound: null,
         isSorted: false,
         searchedFriends: [],
@@ -102,12 +75,12 @@ const FriendState = (props) => {
 
     const [state, dispatch] = useReducer(FriendReducer, initialState)
 
-    const addFriend = (name) => {
+    const addFriend = (name, favorite) => {
         dispatch({
             type: ADD_FRIEND,
             payload: {
                 name,
-                favorite: false,
+                favorite: favorite,
                 id: uuidv4()
             }
         })

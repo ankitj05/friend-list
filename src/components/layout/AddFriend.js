@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import FriendContext from '../../context/friendContext';
 import { MdAdd, MdClear } from 'react-icons/md'
 
-function AddFriend({ name, clearName }) {
+function AddFriend({ name, clearName, favorite = false }) {
 
     const friendContext = useContext(FriendContext);
     const {
@@ -12,7 +12,8 @@ function AddFriend({ name, clearName }) {
     } = friendContext;
 
     const onAdd = () => {
-        addFriend(name)
+        addFriend(name, favorite)
+        if (typeof clearName === 'function') clearName();
         updateTotalPages();
     }
 

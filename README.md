@@ -1,7 +1,6 @@
 # Friend List Application.
 
 ## Features
-
 1. Text Box
     Used to enter the friend's name. 
     Will search for the name, if not found, will show a prompt to add that friend to your list.
@@ -22,7 +21,7 @@
 ## React/JS concepts implemented
 
 1. Hooks- useState, useContext, useReducer, useEffect
-2. debouncing - using search bar, no need to search for friend on every key press, just search after a delay of few seconds.
+2. debouncing on search bar
 3. passing props
 4. Conditional Rendering
 

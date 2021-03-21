@@ -5,7 +5,6 @@ import NotFound from './NotFound';
 function List() {
 
     const [opaqueState, setOpaqueState] = useState('')
-    const [currentList, setCurrentList] = useState([]);
 
     const friendContext = useContext(FriendContext);
     const {
@@ -15,11 +14,13 @@ function List() {
         currentPage
     } = friendContext;
 
+    const [currentList, setCurrentList] = useState(friends);
+
     useEffect(() => {
         let lastIndex = currentPage * 4;
-        let startIndex = lastIndex - 4;
-        setCurrentList(isFound ? searchedFriends.slice(startIndex, lastIndex) : friends.slice(startIndex, lastIndex));
-    }, [currentPage])
+        let startIndex = lastIndex > 3 ? lastIndex - 4 : 0;
+        setCurrentList(!!isFound ? searchedFriends.slice(startIndex, lastIndex) : friends.slice(startIndex, lastIndex));
+    }, [friendContext])
 
     useEffect(() => {
         if (isFound === false) setOpaqueState('opacity-50 transition duration-500 ease-in')
@@ -27,13 +28,13 @@ function List() {
     }, [isFound])
 
     return (
-        <div className={`border rounded-2xl border-gray-500 divide-y divide-gray-300 min-w-max max-w-max m-auto my-10 ${opaqueState}`}>
+        <div >
             {(friends.length > 0) ? (
-                <>
+                <div className={`border rounded-2xl border-gray-500 divide-y divide-gray-300 min-w-max max-w-max m-auto my-10 ${opaqueState}`}>
                     {currentList.map(friend => (
                         <ListItem key={friend.id} friend={friend} />
                     ))}
-                </>) : (<NotFound />)}
+                </div>) : (<NotFound />)}
         </div>
     )
 }

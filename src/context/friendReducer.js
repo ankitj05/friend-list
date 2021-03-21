@@ -66,11 +66,12 @@ export default (state, action) => {
             }
 
         case UPDATE_TOTAL_PAGES:
-            let totalPages = state.isFound ? Math.ceil(state.searchedFriends.length / state.friendsPerPage) : Math.ceil(state.friends.length / state.friendsPerPage)
+            let totalPagesFound = state.isFound ? Math.ceil(state.searchedFriends.length / state.friendsPerPage) : Math.ceil(state.friends.length / state.friendsPerPage)
+            totalPagesFound = totalPagesFound ? totalPagesFound : 1;
             return {
                 ...state,
-                totalPages: totalPages,
-                currentPage: (state.currentPage > totalPages) ? totalPages : state.currentPage
+                totalPages: totalPagesFound,
+                currentPage: (state.currentPage > totalPagesFound) ? totalPagesFound : state.currentPage
             }
 
         case RESET_SEARCH:

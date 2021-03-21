@@ -1,11 +1,12 @@
 import React from 'react'
+import NotFoundImage from './NotFoundImage.png'
+import AddFriend from './AddFriend'
 
 function NotFound() {
     return (
         <div>
-            <h3>Looks like, you have no friends</h3>
-            <h3>Why waiting ? Go get on, add your friends to the list.</h3>
-            <h3>Also, don't forget to favorite your friend.</h3>
+            <img src={NotFoundImage} alt='404' className="m-auto w-1/2" />
+            <AddFriend name={'Ankit Jain'} favorite={true} />
         </div>
     )
 }
