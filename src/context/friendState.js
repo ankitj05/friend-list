@@ -18,51 +18,51 @@ const FriendState = (props) => {
 
     const initialState = {
         friends: [
-            // {
-            //     name: 'Jake Paralta',
-            //     favorite: true,
-            //     id: uuidv4(),
-            // },
-            // {
-            //     name: 'Amy Santiago',
-            //     favorite: false,
-            //     id: uuidv4(),
-            // },
-            // {
-            //     name: 'Rosa',
-            //     favorite: true,
-            //     id: uuidv4(),
-            // },
-            // {
-            //     name: 'Charles Boyle',
-            //     favorite: true,
-            //     id: uuidv4(),
-            // },
-            // {
-            //     name: 'Cpt. Ray Holt',
-            //     favorite: false,
-            //     id: uuidv4(),
-            // },
-            // {
-            //     name: 'Terry Jeffords',
-            //     favorite: false,
-            //     id: uuidv4(),
-            // },
-            // {
-            //     name: '',
-            //     favorite: false,
-            //     id: uuidv4(),
-            // },
-            // {
-            //     name: 'The Vulture',
-            //     favorite: true,
-            //     id: uuidv4(),
-            // },
-            // {
-            //     name: 'Jason Stanley',
-            //     favorite: false,
-            //     id: uuidv4(),
-            // }
+            {
+                name: 'Jake Paralta',
+                favorite: true,
+                id: uuidv4(),
+            },
+            {
+                name: 'Amy Santiago',
+                favorite: false,
+                id: uuidv4(),
+            },
+            {
+                name: 'Rosa',
+                favorite: true,
+                id: uuidv4(),
+            },
+            {
+                name: 'Charles Boyle',
+                favorite: true,
+                id: uuidv4(),
+            },
+            {
+                name: 'Cpt. Ray Holt',
+                favorite: false,
+                id: uuidv4(),
+            },
+            {
+                name: 'Terry Jeffords',
+                favorite: false,
+                id: uuidv4(),
+            },
+            {
+                name: '',
+                favorite: false,
+                id: uuidv4(),
+            },
+            {
+                name: 'The Vulture',
+                favorite: true,
+                id: uuidv4(),
+            },
+            {
+                name: 'Jason Stanley',
+                favorite: false,
+                id: uuidv4(),
+            }
         ],
         isFound: null,
         isSorted: false,

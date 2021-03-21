@@ -11,13 +11,13 @@ function AddFriend({ name, clearName, favorite = false }) {
         resetSearch
     } = friendContext;
 
-    const onAdd = () => {
+    const onAddHandler = () => {
         addFriend(name, favorite)
         if (typeof clearName === 'function') clearName();
         updateTotalPages();
     }
 
-    const onClear = () => {
+    const onClearHandler = () => {
         resetSearch();
         clearName();
         updateTotalPages();
@@ -30,8 +30,8 @@ function AddFriend({ name, clearName, favorite = false }) {
                 <h3 className="font-light">is not on your friend list.</h3>
                 <h3 className="font-light">Do you want to add ?</h3>
             </div>
-            <span className="cursor-pointer" onClick={onAdd}><MdAdd size='2em' /></span>
-            <span className="cursor-pointer" onClick={onClear}><MdClear size='2em' /></span>
+            <span className="cursor-pointer" onClick={onAddHandler}><MdAdd size='2em' /></span>
+            <span className="cursor-pointer" onClick={onClearHandler}><MdClear size='2em' /></span>
         </div>
     )
 }

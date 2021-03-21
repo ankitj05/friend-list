@@ -20,7 +20,7 @@ function Bar() {
         isSorted
     } = friendContext;
 
-    const onChange = e => {
+    const onChangeHandler = e => {
         let value = e.target.value;
         if (value === '') {
             setName('')
@@ -33,8 +33,7 @@ function Bar() {
             setTimer(setTimeout(() => {
                 let friendName = capitalize(value);
                 searchFriend(friendName);
-                updateTotalPages();
-            }, 100))
+            }, 300))
         }
     }
 
@@ -45,28 +44,27 @@ function Bar() {
         return subStrings.join(' ');
     }
 
-    const onSubmit = e => {
+    const onSubmitHandler = e => {
         e.preventDefault();
         if (!!name) {
             let friendName = capitalize(name);
             searchFriend(friendName);
-            updateTotalPages();
         }
     }
 
     useEffect(() => {
         updateTotalPages();
-    }, [])
+    }, [isFound])
 
     return (
         <>
             <div className="flex justify-center items-center mt-5 m-auto">
-                <form onSubmit={onSubmit}>
+                <form onSubmit={onSubmitHandler}>
                     <input
                         className="border border-gray-400 focus:border-red-300 rounded-2xl outline-none w-auto h-9 p-2 my-4 "
                         type='text'
                         value={name}
-                        onChange={onChange}
+                        onChange={onChangeHandler}
                         placeholder='Enter your friends name' />
                 </form>
                 <span

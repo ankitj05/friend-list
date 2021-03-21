@@ -12,7 +12,7 @@ function Pagination() {
         pageNumber.push(i);
     }
 
-    const onClick = (e) => {
+    const onClickHandler = (e) => {
         let elementId = e.target.id
         setCurrentPage(elementId)
     }
@@ -20,13 +20,15 @@ function Pagination() {
     return (
         <div>
             {(friends.length > 4) ? (
-                <div className="flex justify-center items-center border rounded-lg divide-x divide-black bg-gray-400 w-40 md:w-auto max-w-max p-1 m-auto my-10">
+                <div
+                    className="flex justify-center items-center border rounded-lg divide-x divide-black bg-gray-400 w-40 md:w-auto max-w-max p-1 m-auto my-10"
+                    onClick={onClickHandler}>
                     {pageNumber.map(page => {
                         return <span
                             key={page}
                             id={page}
                             className="cursor-pointer font-medium text-center w-20 "
-                            onClick={onClick}>{page}</span>
+                        >{page}</span>
                     })}
                 </div >
             ) : (' ')}

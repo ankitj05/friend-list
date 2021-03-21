@@ -21,12 +21,12 @@ function ListItem({ friend }) {
 
     const { name, favorite, id } = friend;
 
-    const toggleFavorite = () => {
+    const toggleFavoriteHandler = () => {
         toggleFavouriteFriend(id);
         if (isSorted) sortFriendsByFavourites();
     }
 
-    const toDeleteFriend = () => {
+    const toDeleteFriendHandler = () => {
         deleteFriend(id)
         setIsModalOpen(false)
         if (isSorted) sortFriendsByFavourites();
@@ -39,7 +39,7 @@ function ListItem({ friend }) {
                 <h3 className="capitalize text-2xl font-normal w-52 md:w-64">{name ? name : 'Gum-naam'}</h3>
                 <h3 className="font-light w-24">is your friend</h3>
             </div>
-            <span className="cursor-pointer" onClick={toggleFavorite}>{(favorite) ? (<MdStar size='2em' color="#FFFF00" />) : (<MdStarBorder size='2em' />)}</span>
+            <span className="cursor-pointer" onClick={toggleFavoriteHandler}>{(favorite) ? (<MdStar size='2em' color="#FFFF00" />) : (<MdStarBorder size='2em' />)}</span>
             <span className="cursor-pointer text-gray-400" onClick={() => setIsModalOpen(true)}><MdDelete size='2em' /></span>
 
             <Modal
@@ -54,7 +54,7 @@ function ListItem({ friend }) {
                 <div className="w-auto mx-1 my-2">
                     <button
                         type="button"
-                        onClick={toDeleteFriend}
+                        onClick={toDeleteFriendHandler}
                         className="border rounded-3xl border-gray-600 focus:outline-none bg-green-600 px-4 mx-1"
                     >Yes</button>
                     <button
