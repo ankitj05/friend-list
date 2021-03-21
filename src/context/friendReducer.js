@@ -15,7 +15,7 @@ export default (state, action) => {
         case ADD_FRIEND:
             return {
                 ...state,
-                friends: [...state.friends, action.payload],
+                friends: state.isSorted ? [...state.friends, action.payload] : [action.payload, ...state.friends],
                 isFound: null
             }
 

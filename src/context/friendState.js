@@ -41,6 +41,55 @@ const FriendState = (props) => {
             name: 'Rakesh Kumar',
             favorite: false,
             id: uuidv4(),
+        }, {
+            name: 'Ankit Jain',
+            favorite: false,
+            id: uuidv4(),
+        },
+        {
+            name: 'Siddhesh Nachane',
+            favorite: false,
+            id: uuidv4(),
+        },
+        {
+            name: 'Aman',
+            favorite: true,
+            id: uuidv4(),
+        },
+        {
+            name: 'Ritesh Singh Bhandari',
+            favorite: true,
+            id: uuidv4(),
+        },
+        {
+            name: 'Rakesh Kumar',
+            favorite: false,
+            id: uuidv4(),
+        },
+        {
+            name: 'Ankit Jain',
+            favorite: false,
+            id: uuidv4(),
+        },
+        {
+            name: 'Siddhesh Nachane',
+            favorite: false,
+            id: uuidv4(),
+        },
+        {
+            name: 'Aman',
+            favorite: true,
+            id: uuidv4(),
+        },
+        {
+            name: 'Ritesh Singh Bhandari',
+            favorite: true,
+            id: uuidv4(),
+        },
+        {
+            name: 'Rakesh Kumar',
+            favorite: false,
+            id: uuidv4(),
         }],
         isFound: null,
         isSorted: false,
@@ -78,7 +127,7 @@ const FriendState = (props) => {
         })
     }
 
-    const addOrSearchFriend = name => {
+    const searchFriend = name => {
         dispatch({
             type: SEARCH_FRIEND,
             payload: name.toLowerCase()
@@ -115,7 +164,7 @@ const FriendState = (props) => {
                 setLoading,
                 toggleFavouriteFriend,
                 deleteFriend,
-                addOrSearchFriend,
+                searchFriend,
                 sortFriendsByFavourites,
                 resetSearch,
                 setCurrentPage,
