@@ -80,7 +80,8 @@ function Bar() {
                             <HiSortDescending size="1.5em" color="black" />)}</span>
             </div>
             <>
-                {(isFound === false) ? (<AddFriend name={name} clearName={() => setName('')} />) : ('')}
+                {/* {(isFound === false) ? (<AddFriend name={name} clearName={() => setName('')} />) : ('')} */}
+                {(name) ? (<AddFriend name={name} clearName={() => setName('')} />) : ('')}
             </>
             <ReactTooltip />
         </>

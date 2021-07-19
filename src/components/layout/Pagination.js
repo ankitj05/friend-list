@@ -13,15 +13,17 @@ function Pagination() {
     }
 
     const onClickHandler = (e) => {
-        let elementId = e.target.id
-        setCurrentPage(elementId)
+        if (e.target.id) {
+            let elementId = e.target.id
+            setCurrentPage(elementId)
+        }
     }
 
     return (
         <div>
             {(friends.length > 4) ? (
                 <div
-                    className="flex justify-center items-center border rounded-lg divide-x divide-black bg-gray-400 w-40 md:w-auto max-w-max p-1 m-auto my-10"
+                    className="flex justify-center items-center rounded-lg divide-x divide-black bg-gray-400 w-40 md:w-auto max-w-max p-1 m-auto my-10"
                     onClick={onClickHandler}>
                     {pageNumber.map(page => {
                         return <span
